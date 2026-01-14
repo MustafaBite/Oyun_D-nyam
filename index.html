@@ -3,100 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Asmaca Oyunu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>🎮 Oyun Dünyam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card:nth-child(2) .game-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .game-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .game-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .game-card:nth-child(2) .play-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .game-card:nth-child(2) .play-btn:hover {
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .game-image {
+                height: 150px;
+                font-size: 4em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <a href="../oyun_dunyam.html" class="back-btn">← Ana Sayfaya Dön</a>
-        
-        <h1>Adam Asmaca</h1>
-        
-        <!-- Mod Seçimi -->
-        <div id="modeSelection" class="mode-selection">
-            <h2>Oyun Modunu Seçin</h2>
-            <button class="mode-btn" onclick="startGame('single')">Tek Kişilik</button>
-            <button class="mode-btn" onclick="startGame('multi')">Çift Kişilik</button>
-        </div>
+        <h1>🎮 Oyun Dünyam</h1>
+        <p class="subtitle">Eğlenceli oyunlar oynamaya hazır mısın?</p>
 
-        <!-- Çift Kişilik Kelime Girişi -->
-        <div id="wordInput" class="word-input hidden">
-            <h2>1. Oyuncu - Gizli Kelimeyi Girin</h2>
-            <input type="password" id="secretWord" placeholder="Kelimeyi girin..." maxlength="20">
-            <button onclick="setSecretWord()">Başla</button>
-        </div>
-
-        <!-- Oyun Alanı -->
-        <div id="gameArea" class="game-area hidden">
-            <!-- Adam Asmaca Çizimi -->
-            <div class="hangman-container">
-                <svg class="hangman-svg" width="200" height="250">
-                    <!-- Darağacı -->
-                    <line x1="10" y1="230" x2="150" y2="230" stroke="#333" stroke-width="4"/>
-                    <line x1="50" y1="230" x2="50" y2="20" stroke="#333" stroke-width="4"/>
-                    <line x1="50" y1="20" x2="130" y2="20" stroke="#333" stroke-width="4"/>
-                    <line x1="130" y1="20" x2="130" y2="50" stroke="#333" stroke-width="4"/>
-                    
-                    <!-- Adam (7 parça - yüz dahil) -->
-                    <circle id="head" cx="130" cy="70" r="20" stroke="#e74c3c" stroke-width="3" fill="#ffe0d9" class="body-part"/>
-                    
-                    <!-- Yüz İfadeleri -->
-                    <g id="face" class="body-part">
-                        <!-- Gözler (mutlu başlangıç) -->
-                        <circle id="leftEye" cx="122" cy="67" r="2" fill="#333"/>
-                        <circle id="rightEye" cx="138" cy="67" r="2" fill="#333"/>
-                        
-                        <!-- Ağız (mutlu başlangıç - gülümseme) -->
-                        <path id="mouth" d="M 120 75 Q 130 80 140 75" stroke="#333" stroke-width="2" fill="none"/>
-                        
-                        <!-- Çarpı gözler (ölüm için - başlangıçta gizli) -->
-                        <g id="deadEyes" style="opacity: 0;">
-                            <line x1="119" y1="64" x2="125" y2="70" stroke="#333" stroke-width="2"/>
-                            <line x1="125" y1="64" x2="119" y2="70" stroke="#333" stroke-width="2"/>
-                            <line x1="135" y1="64" x2="141" y2="70" stroke="#333" stroke-width="2"/>
-                            <line x1="141" y1="64" x2="135" y2="70" stroke="#333" stroke-width="2"/>
-                        </g>
-                        
-                        <!-- Sevinç gözleri (kazanma için - başlangıçta gizli) -->
-                        <g id="happyEyes" style="opacity: 0;">
-                            <path d="M 119 67 Q 122 64 125 67" stroke="#333" stroke-width="2" fill="none"/>
-                            <path d="M 135 67 Q 138 64 141 67" stroke="#333" stroke-width="2" fill="none"/>
-                        </g>
-                    </g>
-                    
-                    <line id="body" x1="130" y1="90" x2="130" y2="150" stroke="#e74c3c" stroke-width="3" class="body-part"/>
-                    <line id="leftArm" x1="130" y1="110" x2="100" y2="130" stroke="#e74c3c" stroke-width="3" class="body-part"/>
-                    <line id="rightArm" x1="130" y1="110" x2="160" y2="130" stroke="#e74c3c" stroke-width="3" class="body-part"/>
-                    <line id="leftLeg" x1="130" y1="150" x2="110" y2="190" stroke="#e74c3c" stroke-width="3" class="body-part"/>
-                    <line id="rightLeg" x1="130" y1="150" x2="150" y2="190" stroke="#e74c3c" stroke-width="3" class="body-part"/>
-                </svg>
+        <div class="games-grid">
+            <!-- Adam Asmaca Oyunu -->
+            <div class="game-card">
+                <div class="game-image">
+                    🎯
+                </div>
+                <h2 class="game-title">Adam Asmaca</h2>
+                <p class="game-description">
+                    Harfleri tahmin ederek gizli kelimeyi bul! Tek kişilik veya çift kişilik modda oynayabilirsin.
+                </p>
+                <a href="adam-asmaca/adam-asmaca.html" class="play-btn">🎮 Oyna</a>
             </div>
 
-            <!-- Oyun Bilgileri -->
-            <div class="game-info">
-                <div class="word-display" id="wordDisplay"></div>
-                
-                <div class="stats">
-                    <p>Kalan Hak: <span id="remainingLives">7</span></p>
-                    <p>Girilen Harfler: <span id="guessedLetters">-</span></p>
+            <!-- Hazine Avcısı Oyunu -->
+            <div class="game-card">
+                <div class="game-image">
+                    🗺️
                 </div>
-
-                <div id="bestScore" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: bold; display: none;">
-                    🏆 Henüz rekor yok
-                </div>
-
-                <div class="input-area">
-                    <input type="text" id="guessInput" placeholder="Harf veya kelime girin..." maxlength="20">
-                    <button onclick="makeGuess()">Tahmin Et</button>
-                </div>
-
-                <div id="message" class="message"></div>
-
-                <button id="restartBtn" class="restart-btn hidden" onclick="restartGame()">Tekrar Oyna</button>
+                <h2 class="game-title">Hazine Avcısı</h2>
+                <p class="game-description">
+                    Haritada gizlenmiş hazineyi koordinatları tahmin ederek bul! Mesafe ipuçlarıyla hazineye ulaş.
+                </p>
+                <a href="hazine-avcisi/hazine-avcisi.html" class="play-btn">🎮 Oyna</a>
             </div>
+        </div>
+
+        <div class="footer">
+            <p>🎲 Daha fazla oyun yakında eklenecek!</p>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
