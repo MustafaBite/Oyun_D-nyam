@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #5568d3;
+    transform: translateX(-3px);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Mod Seçimi */
+.mode-selection {
+    text-align: center;
+}
+
+.mode-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    margin: 10px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mode-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Kelime Girişi */
+.word-input {
+    text-align: center;
+}
+
+.word-input input {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.word-input button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.word-input button:hover {
+    background: #229954;
+}
+
+/* Oyun Alanı */
+.game-area {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.hangman-container {
+    flex-shrink: 0;
+}
+
+.hangman-svg {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.body-part {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.body-part.visible {
+    opacity: 1;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.word-display {
+    font-size: 2.5em;
+    letter-spacing: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+    min-height: 60px;
+}
+
+.stats {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.stats p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #555;
+}
+
+.stats span {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.input-area button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.input-area button:hover {
+    background: #5568d3;
+}
+
+.message {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 30px;
+    margin: 15px 0;
+}
+
+.message.success {
+    color: #27ae60;
+}
+
+.message.error {
+    color: #e74c3c;
+}
+
+.message.warning {
+    color: #f39c12;
+}
+
+.restart-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.restart-btn:hover {
+    background: #c0392b;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .word-display {
+        font-size: 1.8em;
+        letter-spacing: 5px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Yüz animasyonları */
+#leftEye, #rightEye, #mouth, #deadEyes, #happyEyes {
+    transition: all 0.5s ease;
+}
+
+#face {
+    transition: opacity 0.3s;
+}
