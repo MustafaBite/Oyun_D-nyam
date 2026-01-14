@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kedi Run 🐱</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="../index.html" style="position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.9); color: #333; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">← Ana Sayfaya Dön</a>
+
+<div id="ui">
+  ⭐ En İyi Süre: <span id="bestScore">0</span>
+  | ⏱ Süre: <span id="time">0</span>
+</div>
+
+<div id="game">
+  <div id="player">🐱</div>
+  <div id="obstacle"></div>
+</div>
+
+<div id="gameOverScreen">
+  <h2>💥 Oyun Bitti</h2>
+  <button onclick="resetGame()">Tamam</button>
+</div>
+
+
+<p id="startText">
+  ▶ Başlamak ve zıplamak için <b>HERHANGİ BİR TUŞA</b> basın
+</p>
+
+
+<script src="script.js"></script>
+</body>
+</html>

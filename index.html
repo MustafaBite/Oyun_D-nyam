@@ -85,6 +85,10 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
+        .game-card:nth-child(3) .game-image {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+        }
+
         .game-title {
             font-size: 1.8em;
             color: #333;
@@ -116,6 +120,11 @@
             box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
         }
 
+        .game-card:nth-child(3) .play-btn {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            box-shadow: 0 5px 15px rgba(255, 216, 155, 0.4);
+        }
+
         .play-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
@@ -123,6 +132,10 @@
 
         .game-card:nth-child(2) .play-btn:hover {
             box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+        }
+
+        .game-card:nth-child(3) .play-btn:hover {
+            box-shadow: 0 8px 25px rgba(255, 216, 155, 0.6);
         }
 
         .footer {
@@ -181,6 +194,18 @@
                     Haritada gizlenmiş hazineyi koordinatları tahmin ederek bul! Mesafe ipuçlarıyla hazineye ulaş.
                 </p>
                 <a href="hazine-avcisi/hazine-avcisi.html" class="play-btn">🎮 Oyna</a>
+            </div>
+
+            <!-- Cat Run Oyunu -->
+            <div class="game-card">
+                <div class="game-image">
+                    🐱
+                </div>
+                <h2 class="game-title">Cat Run</h2>
+                <p class="game-description">
+                    Kedi ile koş ve engelleri atla! Ne kadar uzun süre dayanabilirsin? En iyi süreyi kaydet!
+                </p>
+                <a href="CatRun/catrun.html" class="play-btn">🎮 Oyna</a>
             </div>
         </div>
 
